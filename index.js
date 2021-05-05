@@ -1,13 +1,14 @@
 // Get references to DOM elements
-const sendBtn = document.querySelector('#send')
+
 const messages = document.querySelector('#messages')
 const messageInput = document.querySelector('#message-input')
-
+const sendBtn = document.querySelector('#send')
+const nameInput = document.querySelector('#name-input')
 let ws
 
 // Display messages from the websocket
-function showMessage(message) {
-    messages.innerHTML += `${message}\n\n` // display the message
+function showMessage(data) {
+    messages.innerHTML += `<li> ${data.name}: ${data.message}</li>` // display the message
     messages.scrollTop = messages.scrollHeight // scroll to the top
     messageInput.value = '' // clear the input field
   }
@@ -34,16 +35,20 @@ function showMessage(message) {
   
   }
   
-  // Handle button clicks
+  //Handle button clicks
   sendBtn.onclick = function () {
     // Send a message
     if (!ws) {
       showMessage("No WebSocket connection :(");
       return;
     }
+
+    const data = { message: messageInput.value, name: nameInput.value}
+    
+    ws.send(JSON.stringify(data))
+    showMessage(data)
   
-    ws.send(messageInput.value);
-    showMessage(messageInput.value);
+   
   }
   
   init();
