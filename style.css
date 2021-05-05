@@ -33,7 +33,7 @@ section{
     
 }
 
-form{
+.input-container{
     display: grid;
     grid-template-columns: 1fr auto;
     margin: 5px 0;
