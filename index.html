@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <link href="style.css" rel="stylesheet">
-    <body>
+  <head></head>
+  <link href="style.css" rel="stylesheet" />
+  <body class="container">
+    <header>
         <h1>Simple Chat with Websockets</h1>
-        <div class="container">
-            <div>
-                <input type="text" id="name-input" placeholder="Enter Username">
-                <input type="text" id="message-input" placeholder="Type your message here">
-                <button id="send" title="Send Message!">Send Message</button>
-            </div>
-            <div>
-                <ul id="messages"></ul>
-            </div>
-        </div>
-        <script src="index.js"></script>
-    </body>
+    </header>
+
+    <main>
+        <ul id="messages"></ul>
+    </main>
+    <section>
+        <input type="text" id="name-input" placeholder="Enter Username" />
+        <form action="#">
+            <input type="text" id="message-input" placeholder="Type your message here"/>
+            <button id="send" title="Send Message!">Send Message</button>
+        </form>
+
+    </section>
+
+
+
+
+    <script src="index.js"></script>
+  </body>
 </html>
